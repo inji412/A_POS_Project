@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	public String url = "jdbc:oracle:thin:@211:187:232:77:1521:orcl";
-	public String id = "scott";
-	public String pw = "tiger";
+	public String id = "aqoong";
+	public String pw = "qwer12";
 
 	public Connection conn;
 	public PreparedStatement pstmt;

@@ -25,12 +25,10 @@ public class InventoryPanel extends DefaultPane {
 	private JButton btnDel			= new JButton("재료 삭제");
 	private JButton btnUpdate	= new JButton("재료 입고");
 	//center
-	private JTable inventoryTable	= null;
+	private JTable inventoryTable	= new JTable();
 
 	public InventoryPanel(MainFrame _parent) {
 		super(_parent);
-
-		inventoryTable	= new JTable();
 		
 		setTop();
 		setCenter();

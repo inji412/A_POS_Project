@@ -33,7 +33,7 @@ public class DefaultPane extends JSplitPane {
 				if(parent.isLogin && parent.nowPanelNumber == parent.FRAMENUMBER_MAINMENU) {
 					//logout?
 					if(showConfirmDialog("로그아웃 하시겠습니까?") == 0) {
-						parent.dbConn.dbClose();
+//						parent.dbConn.dbClose();
 						parent.isLogin = false;
 					}
 				}

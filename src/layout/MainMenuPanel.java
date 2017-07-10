@@ -98,7 +98,7 @@ public class MainMenuPanel extends DefaultPane {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getActionCommand().equals(btnLogin.getText())) {
+			if(e.getActionCommand().equals(btnLogin.getText()) && !parent.isLogin) {
 				//login
 				parent.isLogin = true;
 				return;
