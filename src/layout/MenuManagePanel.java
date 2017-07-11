@@ -47,7 +47,8 @@ public class MenuManagePanel extends DefaultPane {
 		setLeft();
 		setRight();
 		
-		totalPanel.setResizeWeight(0.9);
+		totalPanel.setDividerSize(0);
+		totalPanel.setResizeWeight(1);
 		this.setRightComponent(totalPanel);
 	}
 	
