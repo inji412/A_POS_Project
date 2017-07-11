@@ -19,7 +19,7 @@ public class CustomMenuItem extends JButton {
 		this.setText(_name);
 		this.setOpaque(true);
 		this.setBackground(Color.BLUE);
-		this.setPreferredSize(new Dimension(200, 200));
+		this.setPreferredSize(new Dimension(100, 100));
 		
 		itemInfo.name = _name;
 		itemInfo.price = _price;
