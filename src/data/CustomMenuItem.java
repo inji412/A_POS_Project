@@ -12,14 +12,14 @@ public class CustomMenuItem extends JButton {
 		int		price;
 		HashMap<String, Integer> recipe;
 	}
-	
+	///
 	private item itemInfo = new item();
 	
 	public CustomMenuItem(String _name, int _price) {
 		this.setText(_name);
 		this.setOpaque(true);
 		this.setBackground(Color.BLUE);
-		this.setPreferredSize(new Dimension(100, 100));
+		this.setPreferredSize(new Dimension(200, 200));
 		
 		itemInfo.name = _name;
 		itemInfo.price = _price;
