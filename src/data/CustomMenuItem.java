@@ -12,7 +12,7 @@ public class CustomMenuItem extends JButton {
 		int		price;
 		HashMap<String, Integer> recipe;
 	}
-	
+	///
 	private item itemInfo = new item();
 	
 	public CustomMenuItem(String _name, int _price) {
