@@ -58,6 +58,8 @@ public class InventoryPanel extends DefaultPane {
 		parent.setTitle("A-POS : 재고관리");
 		String[] type = {"g", "kg","ml", "L", "조각", "개"};
 		
+		
+		
 		inventoryTable.setModel(parent.inventory_model);
 		inventoryTable.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(new JComboBox<String>(type)));
 		inventoryTable.setColumnSelectionAllowed(true);
