@@ -1,11 +1,11 @@
 package layout;
 
+import java.awt.MenuItem;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
-import data.CustomMenuItem;
 import data.DBConnection;
 
 public class MainFrame extends JFrame {
@@ -39,8 +39,7 @@ public class MainFrame extends JFrame {
 	public String[] menu_title = {"번호", "메뉴", "가격", "레시피"};
 	public DefaultTableModel menu_model = new DefaultTableModel(menu_title, 0);
 	
-	// menu buttons  used sell, menumanage
-	public static ArrayList<CustomMenuItem> itemList = new ArrayList<CustomMenuItem>();
+	public static ArrayList<MenuItem> itemList = new ArrayList<MenuItem>();
 	
 	public MainFrame() {
 		setSize(1024, 720);
