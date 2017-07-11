@@ -47,6 +47,7 @@ public class MenuManagePanel extends DefaultPane {
 		setLeft();
 		setRight();
 		
+		totalPanel.setDividerSize(0);
 		totalPanel.setResizeWeight(0.9);
 		this.setRightComponent(totalPanel);
 	}
@@ -96,11 +97,11 @@ public class MenuManagePanel extends DefaultPane {
 		JPanel bottom_top = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel bottom_center = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
-		bottom_top.add(new JLabel("재료명"));	bottom_top.add(meterialNameField);
+		bottom_top.add(new JLabel("  재료명"));	bottom_top.add(meterialNameField);
 		bottom_top.add(new JLabel("재료량"));	bottom_top.add(meterialValueField);
 		bottom_top.add(btnMeterialAdd);
 		
-		bottom_center.add(new JLabel("레시피"));
+		bottom_center.add(new JLabel("  레시피"));
 		bottom_center.add(recipeArea);
 		bottom_center.add(btnRecipeEditMode);
 		

@@ -4,12 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import data.CustomMenuItem;
 
 public class SellStartPanel extends DefaultPane {
 	private JSplitPane totalPanel		= new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
@@ -23,14 +26,18 @@ public class SellStartPanel extends DefaultPane {
 	private DefaultTableModel model = new DefaultTableModel(titles, 0);
 	private JTable sellListTable	= new JTable(model);
 	private JLabel resultMoney	= new JLabel("합계 : ");
+	
 	//right
+	private JPanel buttonsPanel	= new JPanel(new FlowLayout(FlowLayout.LEFT));
+	private JButton btnPay			= new JButton("결제");
+	
 	
 	public SellStartPanel(MainFrame _parent) {
 		super(_parent);
 		
-		setLeft();
-		setRight();
 		
+		
+		totalPanel.setDividerSize(0);
 		this.setRightComponent(totalPanel);
 	}
 
@@ -39,6 +46,9 @@ public class SellStartPanel extends DefaultPane {
 		super.init(nowPanelNumber);
 		parent.setTitle("A-POS : 판매");
 
+		setLeft();
+		setRight();
+		
 	}
 	
 	private void setLeft() {
@@ -64,6 +74,16 @@ public class SellStartPanel extends DefaultPane {
 		totalPanel.setLeftComponent(leftPanel);
 	}
 	private void setRight() {
+		for(int i = 0 ; i < 12 ; i++)
+			parent.itemList.add(new CustomMenuItem("test"+i, 3000));
+		
+		//button add
+		for(int i = 0 ; i < parent.itemList.size() ; i++) {
+			buttonsPanel.add(parent.itemList.get(i));
+		}
+		
+		rightPanel.add(buttonsPanel, BorderLayout.CENTER);
+		rightPanel.add(btnPay, BorderLayout.SOUTH);
 		
 		totalPanel.setRightComponent(rightPanel);
 	}
