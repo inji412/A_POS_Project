@@ -48,7 +48,7 @@ public class DefaultPane extends JSplitPane {
 		
 		this.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		this.setDividerLocation(backButton.getHeight());
-		this.setDividerSize(1);
+		this.setDividerSize(0);
 		this.setLeftComponent(top);
 		this.setRightComponent(null);			//이곳을 매 페이지 마다 설정하면서 페이지 변화를 준다.
 		this.setSize(parent.getSize());
