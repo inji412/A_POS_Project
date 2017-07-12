@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import data.Globar;
 import layout.MainFrame;
 
 public class InventoryAddDialog extends DefaultDialog {
@@ -21,9 +22,8 @@ public class InventoryAddDialog extends DefaultDialog {
 	//top
 	private JTextField nameField	= new JTextField(10);
 	//center
-	private JTextField standardField	= new JTextField(10);
-	private String[] type = {"g", "kg","ml", "L", "조각", "개"};						//warning linked in inventory panel... 
-	private JComboBox<String> typeCombo = new JComboBox<String>(type);
+	private JTextField standardField	= new JTextField(10); 
+	private JComboBox<String> typeCombo = new JComboBox<String>(Globar.sourceMeasureList);
 	
 	//bottom
 	private JTextField nowField		= new JTextField(10);

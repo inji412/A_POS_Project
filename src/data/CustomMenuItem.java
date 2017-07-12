@@ -1,6 +1,5 @@
 package data;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.util.HashMap;
 
@@ -16,10 +15,9 @@ public class CustomMenuItem extends JButton {
 	private item itemInfo = new item();
 	
 	public CustomMenuItem(String _name, int _price) {
-		this.setText(_name);
-		this.setOpaque(true);
-		this.setBackground(Color.BLUE);
-		this.setPreferredSize(new Dimension(200, 200));
+		this.setText(_name +"\n"+_price);
+		
+		this.setPreferredSize(new Dimension(120, 150));
 		
 		itemInfo.name = _name;
 		itemInfo.price = _price;
