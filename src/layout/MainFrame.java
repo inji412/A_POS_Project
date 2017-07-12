@@ -1,10 +1,10 @@
 package layout;
 
-import java.awt.MenuItem;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import data.CustomMenuItem;
 import data.DBConnection;
@@ -39,11 +39,16 @@ public class MainFrame extends JFrame {
 	//menu db model
 	public String[] menu_title = {"번호", "메뉴", "가격", "레시피"};
 	public DefaultTableModel menu_model = new DefaultTableModel(menu_title, 0);
+
 	
 	public static ArrayList<CustomMenuItem> itemList = new ArrayList<CustomMenuItem>();
 	
 	public MainFrame() {
 		setSize(1024, 720);
+		
+		//test
+		for(int i = 0 ; i < 20 ; i++)
+			itemList.add(new CustomMenuItem("test"+i, 1000));
 		
 		panels.add(new MainMenuPanel(this));
 		panels.add(new SellStartPanel(this));
@@ -59,6 +64,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	public void changePanel(int panelNumber) {
+		panels.get(nowPanelNumber).close();
 		getContentPane().removeAll();
 		getContentPane().add(panels.get(panelNumber));
 		revalidate();

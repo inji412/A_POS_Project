@@ -75,4 +75,5 @@ public class DefaultPane extends JSplitPane {
 	}
 	
 	public void init(int nowPanelNumber) {parent.nowPanelNumber = nowPanelNumber;}
+	public void close() {}
 }

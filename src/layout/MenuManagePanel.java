@@ -6,13 +6,16 @@ import java.awt.FlowLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import data.Globar;
 
 public class MenuManagePanel extends DefaultPane {
 
@@ -23,6 +26,7 @@ public class MenuManagePanel extends DefaultPane {
 	
 	//left
 	private JTable menuTable		= new JTable();
+	
 	//right
 	//right-top
 	private JButton btnAdd			= new JButton("메뉴추가");
@@ -35,11 +39,14 @@ public class MenuManagePanel extends DefaultPane {
 	private JTextField menuPriceField	= new JTextField(10);
 	
 	//right-bottom
-	private JTextField meterialNameField	= new JTextField(5);
-	private JTextField meterialValueField	= new JTextField(5);
-	private JTextArea recipeArea				= new JTextArea(15, 10);
-	private JButton btnMeterialAdd			= new JButton("추가");
-	private JButton btnRecipeEditMode	= new JButton("수정");
+	private JTextField sourceNameField		= new JTextField(5);
+	private JTextField sourceValueField		= new JTextField(5);
+	private JComboBox<String> sourceMeasureField	= new JComboBox<String>(Globar.sourceMeasureList);
+	private String[] recipeTitle						= {"재료명", "재료량", "단위"};
+	private DefaultTableModel recipeModel	= new DefaultTableModel(recipeTitle, 0);
+	private JTable recipeList							= new JTable(recipeModel);
+	private JButton btnsourceAdd				= new JButton("추가");
+	private JButton btnRecipeEditMode		= new JButton("선택 지우기");
 	
 	
 	public MenuManagePanel(MainFrame _parent) {
@@ -70,12 +77,14 @@ public class MenuManagePanel extends DefaultPane {
 	private void setRight() {
 		//top
 		JPanel top = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		top.setBorder(BorderFactory.createEmptyBorder(0, 0, 100, 0));
 		top.add(btnAdd);
 		top.add(btnDel);
 		top.add(btnUpdate);
 		
 		//center
 		JPanel center = new JPanel(new BorderLayout());
+		center.setBorder(BorderFactory.createEmptyBorder(0, 0, 100, 0));
 		JPanel center_top = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel center_center = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel center_bottom = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -93,26 +102,31 @@ public class MenuManagePanel extends DefaultPane {
 		center.add(center_bottom, BorderLayout.SOUTH);
 		
 		//bottom
-		JPanel bottom = new JPanel(new BorderLayout());
+		JPanel bottom = new JPanel(new BorderLayout());		bottom.setBorder(BorderFactory.createTitledBorder("레시피 재료추가"));
 		JPanel bottom_top = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel bottom_center = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
-		bottom_top.add(new JLabel("재료명"));	bottom_top.add(meterialNameField);
-		bottom_top.add(new JLabel("재료량"));	bottom_top.add(meterialValueField);
-		bottom_top.add(btnMeterialAdd);
+		bottom_top.add(new JLabel("재료명"));	bottom_top.add(sourceNameField);
+		bottom_top.add(new JLabel("재료량"));	bottom_top.add(sourceValueField);
+		bottom_top.add(new JLabel("단위"));	bottom_top.add(sourceMeasureField);
+		bottom_top.add(btnsourceAdd);
 		
+		
+		//bottom_add recipe 
+		JScrollPane scroll = new JScrollPane(recipeList);
+		scroll.setPreferredSize(new Dimension(200, 200));
 		bottom_center.add(new JLabel("레시피"));
-		bottom_center.add(recipeArea);
+		bottom_center.add(scroll);
 		bottom_center.add(btnRecipeEditMode);
 		
-		bottom.add(bottom_top, BorderLayout.NORTH);
-		bottom.add(bottom_center, BorderLayout.CENTER);
+		bottom.add(bottom_top, BorderLayout.CENTER);
+		bottom.add(bottom_center, BorderLayout.SOUTH);
 		
 		rightPanel.add(top, BorderLayout.NORTH);
 		rightPanel.add(center, BorderLayout.CENTER);
 		rightPanel.add(bottom, BorderLayout.SOUTH);
 		
-		JPanel temp = new JPanel(new FlowLayout(FlowLayout.RIGHT, 50, 30));
+		JPanel temp = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
 		temp.add(rightPanel);
 		
 		totalPanel.setRightComponent(temp);

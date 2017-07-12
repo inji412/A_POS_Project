@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import data.Globar;
 import dialog.InventoryAddDialog;
 
 public class InventoryPanel extends DefaultPane {
@@ -56,10 +57,9 @@ public class InventoryPanel extends DefaultPane {
 	public void init(int nowPanelNumber) {
 		super.init(nowPanelNumber);
 		parent.setTitle("A-POS : 재고관리");
-		String[] type = {"g", "kg","ml", "L", "조각", "개"};
 		
 		inventoryTable.setModel(parent.inventory_model);
-		inventoryTable.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(new JComboBox<String>(type)));
+		inventoryTable.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(new JComboBox<String>(Globar.sourceMeasureList)));
 		inventoryTable.setColumnSelectionAllowed(true);
 	}
 	
